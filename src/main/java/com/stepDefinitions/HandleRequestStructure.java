@@ -2,7 +2,7 @@ package com.stepDefinitions;
 
 import io.restassured.specification.RequestSpecification;
 
-public class RequestContext {
+public class HandleRequestStructure {
     private RequestSpecification request;
     private String methodType;
     private String resourceURL;

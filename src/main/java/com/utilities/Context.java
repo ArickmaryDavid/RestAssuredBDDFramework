@@ -1,24 +1,23 @@
 package com.utilities;
 
-import com.stepDefinitions.RequestContext;
-import org.testng.log4testng.Logger;
+import com.stepDefinitions.HandleRequestStructure;
 
 
 public class Context {
 
 
-    private static ThreadLocal<RequestContext> requestContextThreadLocal=new ThreadLocal<RequestContext>();
+    private static ThreadLocal<HandleRequestStructure> requestContextThreadLocal = new ThreadLocal<HandleRequestStructure>();
 
-    public static RequestContext getRequestContextThreadLocal() {
-        RequestContext requestContextObj=requestContextThreadLocal.get();
-        if (requestContextObj==null){
-            requestContextObj=new RequestContext();
-            requestContextThreadLocal.set(requestContextObj);
+    public static HandleRequestStructure getRequestContextThreadLocal() {
+        HandleRequestStructure handleRequestStructureObj = requestContextThreadLocal.get();
+        if (handleRequestStructureObj == null) {
+            handleRequestStructureObj = new HandleRequestStructure();
+            requestContextThreadLocal.set(handleRequestStructureObj);
         }
-        return requestContextObj;
+        return handleRequestStructureObj;
     }
 
-    public static void setRequestContextThreadLocal(ThreadLocal<RequestContext> requestContextThreadLocal) {
+    public static void setRequestContextThreadLocal(ThreadLocal<HandleRequestStructure> requestContextThreadLocal) {
         Context.requestContextThreadLocal = requestContextThreadLocal;
     }
 }
